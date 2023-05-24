@@ -1,13 +1,15 @@
 package Assignment2;
 
+import java.io.File;
 import java.sql.*;
 import java.util.HashSet;
+import java.util.ResourceBundle;
 
 public class UserManager {
     HashSet<User> Users = new HashSet<>();
     private User CurrentUser = null;
 
-    String jdbcUrl = "jdbc:sqlite:D:\\Java projects\\Assignment2\\src\\main\\resources\\Assignment2\\users.db";
+    String jdbcUrl = "jdbc:sqlite:users.db";
 
     public UserManager(){
         try {

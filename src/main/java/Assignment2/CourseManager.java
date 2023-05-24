@@ -12,7 +12,7 @@ public class CourseManager {
 
     public CourseManager() {
         BufferedReader br;
-        String fileName = "D:\\Java projects\\Assignment2\\src\\main\\resources\\Assignment2\\course.csv";
+        String fileName = "course.csv";
         String line = "";
         {
             try {

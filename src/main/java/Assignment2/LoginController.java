@@ -46,7 +46,7 @@ public class LoginController {
 
                 if (controller.getCurrentUser().getUsername().equals("admin")) {
                     HomeController.adminmode();
-                }
+                }else
                 if (controller.getCurrentUser().getFirstname().equals("")){
                     HomeController.setWelcome("Welcome, Please finish setting up your profile by clicking edit profile!");
                 }else HomeController.setWelcome("Welcome " + controller.getCurrentUser().getFullName());
