@@ -23,22 +23,22 @@ public class User {
         this.Studentnumber = "";
     }
     //since we dont want to return the password for privacy reasons
-    public boolean checkpassword(String Pass){
+    public boolean CheckPassword(String Pass){
         return Password.equals(Pass);
     }
 
-    public String getUsername() {
+    public String GetUsername() {
         return Username;
     }
-    public String getFullName(){
+    public String GetFullName(){
         return Firstname + " " + Lastname;
     }
 
-    public String getFirstname() {
+    public String GetFirstname() {
         return Firstname;
     }
 
-    public CourseManager getCourseManager() {
+    public CourseManager GetCourseManager() {
         return EnrolledCourses;
     }
 }

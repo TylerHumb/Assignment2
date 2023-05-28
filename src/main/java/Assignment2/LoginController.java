@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class LoginController {
     @FXML
@@ -21,35 +20,35 @@ public class LoginController {
     @FXML
     private TextField Username;
     @FXML
-    private Label error;
+    private Label Error;
     @FXML
-    private Button login;
+    private Button Login;
     @FXML
-    private Button register;
+    private Button Register;
     @FXML
-    private Button back;
+    private Button Back;
     @FXML
-    private  Button attemptreg;
+    private  Button AttemptReg;
     @FXML
-    private Label help;
+    private Label Help;
     private Stage stage;
-    UserManager controller = new UserManager();
+    UserManager Controller = new UserManager();
 
 
     public void AttemptLogin(ActionEvent e){
-        if (controller.AttemptLogin(Username.getText(),Password.getText())){
+        if (Controller.AttemptLogin(Username.getText(),Password.getText())){
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
                 Parent root = loader.load();
-                HomeController HomeController = loader.getController(); // make an instance of the next scenes controller to set text up
-                HomeController.obtaincontroller(controller); //Pass the usercontroller into the instance
+                HomeController HomeController = loader.getController(); // make an instance of the next scenes Controller to set text up
+                HomeController.ObtainController(Controller); //Pass the usercontroller into the instance
 
-                if (controller.getCurrentUser().getUsername().equals("admin")) {
-                    HomeController.adminmode();
+                if (Controller.GetCurrentUser().GetUsername().equals("admin")) {
+                    HomeController.AdminMode();
                 }else
-                if (controller.getCurrentUser().getFirstname().equals("")){
-                    HomeController.setWelcome("Welcome, Please finish setting up your profile by clicking edit profile!");
-                }else HomeController.setWelcome("Welcome " + controller.getCurrentUser().getFullName());
+                if (Controller.GetCurrentUser().GetFirstname().equals("")){
+                    HomeController.SetWelcome("Welcome, Please finish setting up your profile by clicking edit profile!");
+                }else HomeController.SetWelcome("Welcome " + Controller.GetCurrentUser().GetFullName());
 
                 stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
                 Scene scene = new Scene(root);
@@ -59,47 +58,47 @@ public class LoginController {
                 System.out.println(exception.getMessage());
             }
 
-        } else error.setText("Invalid Username or Password!");
+        } else Error.setText("Invalid Username or Password!");
 
     }
-    public void registernew(){
-        register.setVisible(false);
-        login.setVisible(false);
-        back.setVisible(true);
-        attemptreg.setVisible(true);
-        help.setVisible(true);
+    public void RegisterNew(){
+        Register.setVisible(false);
+        Login.setVisible(false);
+        Back.setVisible(true);
+        AttemptReg.setVisible(true);
+        Help.setVisible(true);
     }
-    public void back(){
-        register.setVisible(true);
-        login.setVisible(true);
-        back.setVisible(false);
-        attemptreg.setVisible(false);
-        help.setVisible(false);
+    public void Back(){
+        Register.setVisible(true);
+        Login.setVisible(true);
+        Back.setVisible(false);
+        AttemptReg.setVisible(false);
+        Help.setVisible(false);
     }
-    public boolean attemptregister(){
-        for(User U:controller.getUsers()){
-            if (U.getUsername().equals(Username.getText())){
-                error.setText("Username Already taken!");
+    public boolean AttemptRegister(){
+        for(User U: Controller.GetUsers()){
+            if (U.GetUsername().equals(Username.getText())){
+                Error.setText("Username Already taken!");
                 return false;
             }
         }
         if (Username.getText().equals("") && Password.getText().equals("")){
-            error.setText("Please fill out required fields!");
+            Error.setText("Please fill out required fields!");
             return false;
         }
         if (Username.getText().length() > 20){
-            error.setText("Usernames must be under 20 characters");
+            Error.setText("Usernames must be under 20 characters");
             return false;
         }
         if (Username.getText().equals("")){
-            error.setText("Please enter a username");
+            Error.setText("Please enter a username");
             return false;
         }
         if (Password.getText().equals("")){
-            error.setText("Please enter a password");
+            Error.setText("Please enter a password");
             return false;
         }
-        return  controller.RegisterNewUser(Username.getText(),Password.getText());
+        return  Controller.RegisterNewUser(Username.getText(),Password.getText());
 
     }
 

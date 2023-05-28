@@ -9,8 +9,6 @@ public class Course {
     private String Time;
     private String Duration;
 
-    boolean enrolled;
-
     public Course(String coursename, String capacity, String year, String delivery, String day, String time, String duration) {
         Coursename = coursename;
         Capacity = capacity;
@@ -19,7 +17,6 @@ public class Course {
         Day = day;
         Time = time;
         Duration = duration;
-        enrolled = false;
     }
 
     public String getCoursename() {
@@ -48,5 +45,10 @@ public class Course {
 
     public String getDuration() {
         return Duration;
+    }
+
+    @Override
+    public String toString() {
+        return Coursename + " - " + Capacity + " - " + Year + " - " + Delivery + " - " + Day + " - " + Time + " - " + Duration;
     }
 }

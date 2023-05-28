@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment2.EnrolViewController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="420.0" layoutX="-276.0" layoutY="-20.0" stroke="TRANSPARENT" strokeType="INSIDE" width="398.0" />
+      <Button layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onAction="#Home" prefHeight="49.0" prefWidth="100.0" text="Back to Home" textAlignment="CENTER" wrapText="true" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="118.0" layoutY="-165.0" stroke="TRANSPARENT" strokeType="INSIDE" width="483.0" />
+      <Label layoutX="134.0" layoutY="21.0" style="-fx-font-style: italic;" text="Lockington Consolidated University">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <ListView fx:id="PossibleEnrol" layoutX="145.0" layoutY="118.0" prefHeight="200.0" prefWidth="436.0" />
+      <Button layoutX="338.0" layoutY="336.0" mnemonicParsing="false" onAction="#Enrol" text="Enrol" />
+      <Label fx:id="Warning" alignment="CENTER" layoutX="254.0" layoutY="369.0" prefHeight="17.0" prefWidth="217.0" textAlignment="CENTER" textFill="RED" />
+   </children>
+</AnchorPane>

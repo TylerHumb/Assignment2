@@ -1,9 +1,7 @@
 package Assignment2;
 
-import java.io.File;
 import java.sql.*;
 import java.util.HashSet;
-import java.util.ResourceBundle;
 
 public class UserManager {
     HashSet<User> Users = new HashSet<>();
@@ -24,7 +22,11 @@ public class UserManager {
             ResultSet users = statement.executeQuery(sql);
 
             while (users.next()){
-                Users.add(new User(users.getString("Username"),users.getString("Password"),users.getString("Firstname"),users.getString("Lastname"),users.getString("StudentID")));
+                User usertoadd = new User(users.getString("Username"),users.getString("Password"),users.getString("Firstname"),users.getString("Lastname"),users.getString("StudentID"));
+                if (users.getString("enrolledcourses") != null){
+                    usertoadd.GetCourseManager().SetupEnrolledCourses(users.getString("enrolledcourses"));
+                }
+                Users.add(usertoadd);
             }
         } catch (SQLException e) {
             System.out.println(e.getErrorCode());
@@ -33,7 +35,7 @@ public class UserManager {
 
     public boolean AttemptLogin(String Username, String Password){
         for(User U: Users){
-            if (U.getUsername().equals(Username)&& U.checkpassword(Password)){
+            if (U.GetUsername().equals(Username)&& U.CheckPassword(Password)){
                 SetUser(U);
                 return true;
             }
@@ -41,14 +43,14 @@ public class UserManager {
         return false;
     }
 
-    public HashSet<User> getUsers() {
+    public HashSet<User> GetUsers() {
         return Users;
     }
 
     public void SetUser(User User){
         CurrentUser = User;
     }
-    public User getCurrentUser(){
+    public User GetCurrentUser(){
         return CurrentUser;
     }
 
@@ -70,6 +72,23 @@ public class UserManager {
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl);
             String sql = "Delete From users WHERE Username ='"+Username+"'";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    public boolean AddEnrolledCourse(String Coursename) {
+        String sql;
+        if (CurrentUser.GetCourseManager().GetEnrolledCourses().size() == 0) {
+            sql = "Update users SET enrolledcourses = '" + Coursename + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
+        } else {
+            sql = "Update users SET enrolledcourses = '" + CurrentUser.GetCourseManager().GeneratenewEnrolled(Coursename) + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
+        }
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl);
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
         } catch (SQLException e) {

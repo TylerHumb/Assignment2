@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment2.HomeController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="420.0" layoutX="-276.0" layoutY="-20.0" stroke="TRANSPARENT" strokeType="INSIDE" width="398.0" />
-      <Button layoutX="14.0" layoutY="138.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="100.0" text="Enrol in a course" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="14.0" layoutY="138.0" mnemonicParsing="false" onAction="#EnrolView" prefHeight="49.0" prefWidth="100.0" text="Enrol in a course" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onAction="#CourseView" prefHeight="49.0" prefWidth="100.0" text="View all Courses" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="200.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="100.0" text="Withdraw from a course" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="265.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="100.0" text="View enrolled courses" textAlignment="CENTER" wrapText="true" />
@@ -28,11 +28,11 @@
       <Label layoutX="134.0" layoutY="241.0" text="Vocation Education:" textFill="RED" />
       <Label layoutX="134.0" layoutY="258.0" prefHeight="49.0" prefWidth="421.0" text="Semester 1 timetables are in ready only mode , no further student changes are possible for semester 1 classes. " wrapText="true" />
       <Label layoutX="134.0" layoutY="314.0" prefHeight="58.0" prefWidth="455.0" text="Any questions on the recording and availability of lectures and other teaching content please contact the course coordinator via Canvas" wrapText="true" />
-      <Text fx:id="welcome" layoutX="134.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello FIRSTNAME LASTNAME" />
-      <Button layoutX="518.0" layoutY="84.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="74.0" text="Logout" />
+      <Text fx:id="Welcome" layoutX="134.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello FIRSTNAME LASTNAME" />
+      <Button layoutX="518.0" layoutY="84.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="74.0" text="Logout" />
       <Button fx:id="editprofile" layoutX="518.0" layoutY="117.0" mnemonicParsing="false" text="Edit Profile" />
       <Button fx:id="Delete" layoutX="514.0" layoutY="117.0" mnemonicParsing="false" onAction="#DeleteUser" text="Delete Users" visible="false" />
-      <TextField fx:id="Todelete" layoutX="440.0" layoutY="150.0" promptText="Username to delete" visible="false" />
-      <Label fx:id="confirmation" layoutX="409.0" layoutY="175.0" text="confirmation" textFill="RED" visible="false" wrapText="true" />
+      <TextField fx:id="ToDelete" layoutX="440.0" layoutY="150.0" promptText="Username to delete" visible="false" />
+      <Label fx:id="Confirmation" layoutX="409.0" layoutY="175.0" text="confirmation" textFill="RED" visible="false" wrapText="true" />
    </children>
 </AnchorPane>

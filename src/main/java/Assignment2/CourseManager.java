@@ -1,5 +1,7 @@
 package Assignment2;
 
+import org.sqlite.util.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -32,16 +34,35 @@ public class CourseManager {
         }
     }
 
-    public HashSet<Course> getAvailableCourses(){
+    public HashSet<Course> GetAvailableCourses(){
         return AvailableCourses;
     }
-    public HashSet<Course> getEnrolledCourses(){
+    public HashSet<Course> GetEnrolledCourses(){
         return EnrolledCourses;
     }
-    public boolean addEnrolledCourse(Course course){
+    public boolean AddEnrolledCourse(Course course){
         return EnrolledCourses.add(course);
     }
-    public boolean Removecourse(Course course){
+    public boolean RemoveCourse(Course course){
         return EnrolledCourses.remove(course);
+    }
+
+    public void SetupEnrolledCourses(String Coursenames){
+        String[] Coursestoadd = Coursenames.split(",");
+        for (String coursename:Coursestoadd){
+            for (Course course:AvailableCourses){
+                if (course.getCoursename().equals(coursename)){
+                    AddEnrolledCourse(course);
+                }
+            }
+        }
+    }
+    public String GeneratenewEnrolled(String Coursetoadd){
+        String names = "";
+        for (Course course:EnrolledCourses){
+            names = names + course.getCoursename() + ",";
+        }
+            names = names + Coursetoadd;
+        return names;
     }
 }

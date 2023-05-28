@@ -11,7 +11,7 @@
    <children>
       <TextField fx:id="Username" layoutX="73.0" layoutY="89.0" />
       <PasswordField fx:id="Password" layoutX="73.0" layoutY="127.0" />
-      <Button fx:id="login" layoutX="50.0" layoutY="166.0" mnemonicParsing="false" onAction="#AttemptLogin" text="Login" />
+      <Button fx:id="Login" layoutX="50.0" layoutY="166.0" mnemonicParsing="false" onAction="#AttemptLogin" text="Login" />
       <Label layoutX="24.0" layoutY="26.0" text="LCU Course Manager">
          <font>
             <Font size="20.0" />
@@ -19,11 +19,11 @@
       </Label>
       <Label layoutX="10.0" layoutY="93.0" text="Username" />
       <Label layoutX="12.0" layoutY="131.0" text="Password" />
-      <Label fx:id="error" layoutX="37.0" layoutY="203.0" textFill="RED" />
-      <Button fx:id="register" layoutX="109.0" layoutY="166.0" mnemonicParsing="false" onAction="#registernew" text="Register new user" />
-      <Button fx:id="back" layoutX="52.0" layoutY="166.0" mnemonicParsing="false" onAction="#back" text="Back" visible="false" />
-      <Button fx:id="attemptreg" layoutX="135.0" layoutY="166.0" mnemonicParsing="false" onAction="#attemptregister" text="Register" visible="false" />
-      <Label fx:id="help" layoutX="34.0" layoutY="64.0" text="Enter details for new user" visible="false">
+      <Label fx:id="Error" layoutX="37.0" layoutY="203.0" textFill="RED" />
+      <Button fx:id="Register" layoutX="109.0" layoutY="166.0" mnemonicParsing="false" onAction="#RegisterNew" text="Register new user" />
+      <Button fx:id="Back" layoutX="52.0" layoutY="166.0" mnemonicParsing="false" onAction="#Back" text="Back" visible="false" />
+      <Button fx:id="AttemptReg" layoutX="135.0" layoutY="166.0" mnemonicParsing="false" onAction="#AttemptRegister" text="Register" visible="false" />
+      <Label fx:id="Help" layoutX="34.0" layoutY="64.0" text="Enter details for new user" visible="false">
          <font>
             <Font size="15.0" />
          </font>

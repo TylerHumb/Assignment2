@@ -17,44 +17,44 @@ import java.util.Objects;
 
 public class HomeController {
     @FXML
-    private Text welcome;
+    private Text Welcome;
     @FXML
-    private TextField Todelete;
+    private TextField ToDelete;
     @FXML
-    private Button editprofile;
+    private Button EditProfile;
     @FXML
     private Button Delete;
 
     @FXML
-    private Label confirmation;
+    private Label Confirmation;
     private Stage stage;
 
-    private UserManager controller;
+    private UserManager Controller;
 
-    public void setWelcome(String message){
-        welcome.setText(message);
+    public void SetWelcome(String message){
+        Welcome.setText(message);
     }
 
-    public void obtaincontroller(UserManager controller){
-        this.controller = controller;
+    public void ObtainController(UserManager controller){
+        this.Controller = controller;
     }
 
-    public void login(ActionEvent e) throws IOException {
+    public void Login(ActionEvent e) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        controller.SetUser(null);
+        Controller.SetUser(null);
         stage.show();
     }
     public void CourseView(ActionEvent e) throws IOException{
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseView.fxml"));
             Parent root = loader.load();
-            CourseViewController courseViewController = loader.getController(); // make an instance of the next scenes controller to set text up
-            courseViewController.obtaincontroller(controller); //Pass the usercontroller into the instance
+            CourseViewController courseViewController = loader.getController(); // make an instance of the next scenes Controller to set text up
+            courseViewController.ObtainController(Controller); //Pass the usercontroller into the instance
 
-            courseViewController.setuptable();
+            courseViewController.SetupTable();
 
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
@@ -64,16 +64,31 @@ public class HomeController {
             System.out.println(exception.getMessage());
         }
     }
-    public void adminmode(){
-        setWelcome("Hey Tyler");
-        Todelete.setVisible(true);
-        editprofile.setVisible(false);
+    public void AdminMode(){
+        SetWelcome("Hey Tyler");
+        ToDelete.setVisible(true);
+        EditProfile.setVisible(false);
         Delete.setVisible(true);
-        confirmation.setVisible(true);
+        Confirmation.setVisible(true);
+    }
+    public void EnrolView(ActionEvent e){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EnrolView.fxml"));
+            Parent root = loader.load();
+            EnrolViewController enrolViewController = loader.getController(); // make an instance of the next scenes Controller to set text up
+            enrolViewController.ObtainController(Controller); //Pass the usercontroller into the instance
+            enrolViewController.PopulateList();
+            stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); //setup the new scene
+        }catch (IOException exception){
+            System.out.println(exception.getMessage());
+        }
     }
     public void DeleteUser(){
-        if (controller.DeleteUser(Todelete.getText())){
-            confirmation.setText("User:" + Todelete.getText() + "Successfully deleted");
-        }else confirmation.setText("Failed to delete user");
+        if (Controller.DeleteUser(ToDelete.getText())){
+            Confirmation.setText("User: " + ToDelete.getText() + " Successfully deleted");
+        }else Confirmation.setText("Failed to delete user");
     }
 }

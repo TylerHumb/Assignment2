@@ -17,7 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Time;
 import java.util.ResourceBundle;
 
 public class CourseViewController implements Initializable {
@@ -26,55 +25,55 @@ public class CourseViewController implements Initializable {
     @FXML
     private TableView<Course> CourseTable;
     @FXML
-    private TableColumn<Course, String> Coursenamecol;
+    private TableColumn<Course, String> CourseNameCol;
     @FXML
-    private TableColumn<Course, String> Capacitycol;
+    private TableColumn<Course, String> CapacityCol;
     @FXML
-    private TableColumn<Course, String> Yearcol;
+    private TableColumn<Course, String> YearCol;
     @FXML
-    private TableColumn<Course, String> Deliverycol;
+    private TableColumn<Course, String> DeliveryCol;
     @FXML
-    private TableColumn<Course, String> Daycol;
+    private TableColumn<Course, String> DayCol;
     @FXML
-    private TableColumn<Course, String> Timecol;
+    private TableColumn<Course, String> TimeCol;
     @FXML
-    private TableColumn<Course, String> Durationcol;
-    UserManager controller;
+    private TableColumn<Course, String> DurationCol;
+    UserManager Controller;
     //Below From https://www.youtube.com/watch?v=fnU1AlyuguE&ab_channel=Randomcode
-    public void setuptable(){
+    public void SetupTable(){
         ObservableList<Course> courses = FXCollections.observableArrayList();
 
-        courses.addAll(controller.getCurrentUser().getCourseManager().getAvailableCourses());
+        courses.addAll(Controller.GetCurrentUser().GetCourseManager().GetAvailableCourses());
         CourseTable.setItems(courses);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
-        Coursenamecol.setCellValueFactory(new PropertyValueFactory<>("Coursename"));
-        Capacitycol.setCellValueFactory(new PropertyValueFactory<>("Capacity"));
-        Yearcol.setCellValueFactory(new PropertyValueFactory<>("Year"));
-        Deliverycol.setCellValueFactory(new PropertyValueFactory<>("Delivery"));
-        Daycol.setCellValueFactory(new PropertyValueFactory<>("Day"));
-        Timecol.setCellValueFactory(new PropertyValueFactory<>("Time"));
-        Durationcol.setCellValueFactory(new PropertyValueFactory<>("Duration"));
+        CourseNameCol.setCellValueFactory(new PropertyValueFactory<>("Coursename"));
+        CapacityCol.setCellValueFactory(new PropertyValueFactory<>("Capacity"));
+        YearCol.setCellValueFactory(new PropertyValueFactory<>("Year"));
+        DeliveryCol.setCellValueFactory(new PropertyValueFactory<>("Delivery"));
+        DayCol.setCellValueFactory(new PropertyValueFactory<>("Day"));
+        TimeCol.setCellValueFactory(new PropertyValueFactory<>("Time"));
+        DurationCol.setCellValueFactory(new PropertyValueFactory<>("Duration"));
     }
 
-    public void obtaincontroller(UserManager controller){
-        this.controller = controller;
+    public void ObtainController(UserManager controller){
+        this.Controller = controller;
     }
 
     public void Home(ActionEvent e){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
             Parent root = loader.load();
-            HomeController HomeController = loader.getController(); // make an instance of the next scenes controller to set text up
-            HomeController.obtaincontroller(controller); //Pass the usercontroller into the instance
+            HomeController HomeController = loader.getController(); // make an instance of the next scenes Controller to set text up
+            HomeController.ObtainController(Controller); //Pass the usercontroller into the instance
 
-            if (controller.getCurrentUser().getUsername().equals("admin")) {
-                HomeController.adminmode();
+            if (Controller.GetCurrentUser().GetUsername().equals("admin")) {
+                HomeController.AdminMode();
             }
-            if (controller.getCurrentUser().getFirstname().equals("")){
-                HomeController.setWelcome("Welcome, Please finish setting up your profile by clicking edit profile!");
-            }else HomeController.setWelcome("Welcome " + controller.getCurrentUser().getFullName());
+            if (Controller.GetCurrentUser().GetFirstname().equals("")){
+                HomeController.SetWelcome("Welcome, Please finish setting up your profile by clicking edit profile!");
+            }else HomeController.SetWelcome("Welcome " + Controller.GetCurrentUser().GetFullName());
 
             Stage stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
