@@ -122,4 +122,52 @@ public class UserManager {
         }
         return true;
     }
+    public boolean SetStudentNum(String number){
+        String sql = "Update users SET StudentID ='"+number+"' WHERE Username ='"+CurrentUser.GetUsername()+"'";
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    public boolean SetFirstName(String Firstname){
+        String sql = "Update users SET Firstname ='"+Firstname+"' WHERE Username ='"+CurrentUser.GetUsername()+"'";
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    public boolean SetLastname(String Lastname){
+        String sql = "Update users SET Lastname ='"+Lastname+"' WHERE Username ='"+CurrentUser.GetUsername()+"'";
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    public boolean SetPassword(String Password){
+        String sql = "Update users SET Password ='"+Password+"' WHERE Username ='"+CurrentUser.GetUsername()+"'";
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
 }

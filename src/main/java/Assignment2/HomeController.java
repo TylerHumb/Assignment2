@@ -21,15 +21,13 @@ public class HomeController {
     @FXML
     private TextField ToDelete;
     @FXML
-    private Button EditProfile;
-    @FXML
     private Button Delete;
 
     @FXML
     private Label Confirmation;
-    private Stage stage;
 
     private UserManager Controller;
+    private Navigator navigator = new Navigator();
 
     public void SetWelcome(String message){
         Welcome.setText(message);
@@ -40,27 +38,25 @@ public class HomeController {
     }
 
     public void Login(ActionEvent e) throws IOException {
-        Navigator navigator = new Navigator();
         navigator.Login(e,Controller);
     }
     public void CourseView(ActionEvent e) throws IOException{
-        Navigator navigator = new Navigator();
         navigator.CourseView(e,Controller);
     }
     public void AdminMode(){
         SetWelcome("Hey Tyler");
         ToDelete.setVisible(true);
-        EditProfile.setVisible(false);
         Delete.setVisible(true);
         Confirmation.setVisible(true);
     }
     public void EnrolView(ActionEvent e){
-        Navigator navigator = new Navigator();
         navigator.EnrolView(e,Controller);
     }
     public void UnenrolView(ActionEvent e){
-        Navigator navigator = new Navigator();
         navigator.UnenrolView(e,Controller);
+    }
+    public void EditProfile(ActionEvent e){
+        navigator.EditProfile(e,Controller);
     }
     public void DeleteUser(){
         if (Controller.DeleteUser(ToDelete.getText())){

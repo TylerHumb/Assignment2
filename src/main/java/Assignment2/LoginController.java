@@ -56,7 +56,7 @@ public class LoginController {
         AttemptReg.setVisible(false);
         Help.setVisible(false);
     }
-    public boolean AttemptRegister(){
+    public boolean AttemptRegister(ActionEvent e){
         for(User U: Controller.GetUsers()){
             if (U.GetUsername().equals(Username.getText())){
                 Error.setText("Username Already taken!");
@@ -79,7 +79,14 @@ public class LoginController {
             Error.setText("Please enter a password");
             return false;
         }
-        return  Controller.RegisterNewUser(Username.getText(),Password.getText());
+        if (Controller.RegisterNewUser(Username.getText(),Password.getText())){
+            Navigator navigator = new Navigator();
+            navigator.EditProfile(e,Controller);
+            return true;
+        }else{
+            Error.setText("Error whilst Registering, please try again");
+            return false;
+        }
 
     }
 

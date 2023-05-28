@@ -92,4 +92,20 @@ public class Navigator { // solely for switching views to reduce re-used code
             System.out.println(exception.getMessage());
         }
     }
+    public void EditProfile(ActionEvent e,UserManager Controller){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EditProfile.fxml"));
+            Parent root = loader.load();
+            EditProfileController editProfileController = loader.getController(); // make an instance of the next scenes Controller to set text up
+            editProfileController.ObtainController(Controller); //Pass the usercontroller into the instance
+            editProfileController.Setup();
+            stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); //setup the new scene
+        }catch (IOException exception){
+            System.out.println(exception.getMessage());
+        }
+    }
+
 }

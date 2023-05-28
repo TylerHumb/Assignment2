@@ -30,7 +30,7 @@
       <Label layoutX="134.0" layoutY="314.0" prefHeight="58.0" prefWidth="455.0" text="Any questions on the recording and availability of lectures and other teaching content please contact the course coordinator via Canvas" wrapText="true" />
       <Text fx:id="Welcome" layoutX="134.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello FIRSTNAME LASTNAME" />
       <Button layoutX="518.0" layoutY="84.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="74.0" text="Logout" />
-      <Button fx:id="editprofile" layoutX="518.0" layoutY="117.0" mnemonicParsing="false" text="Edit Profile" />
+      <Button layoutX="518.0" layoutY="117.0" mnemonicParsing="false" onAction="#EditProfile" text="Edit Profile" />
       <Button fx:id="Delete" layoutX="514.0" layoutY="117.0" mnemonicParsing="false" onAction="#DeleteUser" text="Delete Users" visible="false" />
       <TextField fx:id="ToDelete" layoutX="440.0" layoutY="150.0" promptText="Username to delete" visible="false" />
       <Label fx:id="Confirmation" layoutX="409.0" layoutY="175.0" text="confirmation" textFill="RED" visible="false" wrapText="true" />

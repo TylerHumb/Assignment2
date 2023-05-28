@@ -38,7 +38,25 @@ public class User {
         return Firstname;
     }
 
+    public String GetStudentnumber(){return Studentnumber;}
+
     public CourseManager GetCourseManager() {
         return EnrolledCourses;
+    }
+
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public void setFirstname(String firstname) {
+        Firstname = firstname;
+    }
+
+    public void setLastname(String lastname) {
+        Lastname = lastname;
+    }
+
+    public void setStudentnumber(String studentnumber) {
+        Studentnumber = studentnumber;
     }
 }
