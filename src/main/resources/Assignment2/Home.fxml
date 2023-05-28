@@ -13,7 +13,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="420.0" layoutX="-276.0" layoutY="-20.0" stroke="TRANSPARENT" strokeType="INSIDE" width="398.0" />
       <Button layoutX="14.0" layoutY="138.0" mnemonicParsing="false" onAction="#EnrolView" prefHeight="49.0" prefWidth="100.0" text="Enrol in a course" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onAction="#CourseView" prefHeight="49.0" prefWidth="100.0" text="View all Courses" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="14.0" layoutY="200.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="100.0" text="Withdraw from a course" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#UnenrolView" prefHeight="49.0" prefWidth="100.0" text="Withdraw from a course" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="265.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="100.0" text="View enrolled courses" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="328.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="100.0" text="Export Enrolled courses" textAlignment="CENTER" wrapText="true" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="118.0" layoutY="-165.0" stroke="TRANSPARENT" strokeType="INSIDE" width="483.0" />

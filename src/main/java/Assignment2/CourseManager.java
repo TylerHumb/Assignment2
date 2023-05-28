@@ -65,4 +65,14 @@ public class CourseManager {
             names = names + Coursetoadd;
         return names;
     }
+    public String GeneratenewEnrolled(){
+        String names = "";
+        for (Course course:EnrolledCourses){
+            names = names + course.getCoursename() + ",";
+        }
+        if (names.length() != 0) {
+            names = names.substring(0, names.length() - 1);
+        }
+        return names;
+    }
 }

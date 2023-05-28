@@ -40,29 +40,12 @@ public class HomeController {
     }
 
     public void Login(ActionEvent e) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
-        stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        Controller.SetUser(null);
-        stage.show();
+        Navigator navigator = new Navigator();
+        navigator.Login(e,Controller);
     }
     public void CourseView(ActionEvent e) throws IOException{
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseView.fxml"));
-            Parent root = loader.load();
-            CourseViewController courseViewController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            courseViewController.ObtainController(Controller); //Pass the usercontroller into the instance
-
-            courseViewController.SetupTable();
-
-            stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show(); //setup the new scene
-        }catch (IOException exception){
-            System.out.println(exception.getMessage());
-        }
+        Navigator navigator = new Navigator();
+        navigator.CourseView(e,Controller);
     }
     public void AdminMode(){
         SetWelcome("Hey Tyler");
@@ -72,19 +55,12 @@ public class HomeController {
         Confirmation.setVisible(true);
     }
     public void EnrolView(ActionEvent e){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("EnrolView.fxml"));
-            Parent root = loader.load();
-            EnrolViewController enrolViewController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            enrolViewController.ObtainController(Controller); //Pass the usercontroller into the instance
-            enrolViewController.PopulateList();
-            stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show(); //setup the new scene
-        }catch (IOException exception){
-            System.out.println(exception.getMessage());
-        }
+        Navigator navigator = new Navigator();
+        navigator.EnrolView(e,Controller);
+    }
+    public void UnenrolView(ActionEvent e){
+        Navigator navigator = new Navigator();
+        navigator.UnenrolView(e,Controller);
     }
     public void DeleteUser(){
         if (Controller.DeleteUser(ToDelete.getText())){

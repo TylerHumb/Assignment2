@@ -62,25 +62,7 @@ public class CourseViewController implements Initializable {
     }
 
     public void Home(ActionEvent e){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-            Parent root = loader.load();
-            HomeController HomeController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            HomeController.ObtainController(Controller); //Pass the usercontroller into the instance
-
-            if (Controller.GetCurrentUser().GetUsername().equals("admin")) {
-                HomeController.AdminMode();
-            }
-            if (Controller.GetCurrentUser().GetFirstname().equals("")){
-                HomeController.SetWelcome("Welcome, Please finish setting up your profile by clicking edit profile!");
-            }else HomeController.SetWelcome("Welcome " + Controller.GetCurrentUser().GetFullName());
-
-            Stage stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show(); //setup the new scene
-        }catch (IOException exception){
-            System.out.println(exception.getMessage());
-        }
+        Navigator navigator = new Navigator();
+        navigator.Home(e,Controller);
     }
 }

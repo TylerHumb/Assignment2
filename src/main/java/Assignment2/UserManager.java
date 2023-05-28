@@ -82,11 +82,36 @@ public class UserManager {
     }
     public boolean AddEnrolledCourse(String Coursename) {
         String sql;
+        for (Course course:CurrentUser.GetCourseManager().GetAvailableCourses()){
+            if (course.getCoursename().equals(Coursename)){
+                CurrentUser.GetCourseManager().AddEnrolledCourse(course);
+                break;
+            }
+        }
         if (CurrentUser.GetCourseManager().GetEnrolledCourses().size() == 0) {
             sql = "Update users SET enrolledcourses = '" + Coursename + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
         } else {
             sql = "Update users SET enrolledcourses = '" + CurrentUser.GetCourseManager().GeneratenewEnrolled(Coursename) + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
         }
+        try {
+            Connection connection = DriverManager.getConnection(jdbcUrl);
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+        return true;
+    }
+    public boolean RemoveEnrolledCourse(String Coursename) {
+        String sql;
+        for (Course course:CurrentUser.GetCourseManager().GetEnrolledCourses()){
+            if (course.getCoursename().equals(Coursename)){
+                CurrentUser.GetCourseManager().RemoveCourse(course);
+                break;
+            }
+        }
+        sql = "Update users SET enrolledcourses = '" + CurrentUser.GetCourseManager().GeneratenewEnrolled() + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl);
             Statement statement = connection.createStatement();
