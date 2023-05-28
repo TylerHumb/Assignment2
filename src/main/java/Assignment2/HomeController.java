@@ -2,18 +2,11 @@ package Assignment2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.util.Objects;
 
 public class HomeController {
     @FXML
@@ -27,7 +20,7 @@ public class HomeController {
     private Label Confirmation;
 
     private UserManager Controller;
-    private Navigator navigator = new Navigator();
+    private final Navigator navigator = new Navigator();
 
     public void SetWelcome(String message){
         Welcome.setText(message);
@@ -40,7 +33,7 @@ public class HomeController {
     public void Login(ActionEvent e) throws IOException {
         navigator.Login(e,Controller);
     }
-    public void CourseView(ActionEvent e) throws IOException{
+    public void CourseView(ActionEvent e){
         navigator.CourseView(e,Controller);
     }
     public void AdminMode(){

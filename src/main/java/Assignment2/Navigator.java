@@ -13,8 +13,6 @@ import java.util.Objects;
 public class Navigator { // solely for switching views to reduce re-used code
     private Stage stage;
 
-    private UserManager Controller;
-
     public void Login(ActionEvent e, UserManager Controller) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
         stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
@@ -23,12 +21,12 @@ public class Navigator { // solely for switching views to reduce re-used code
         Controller.SetUser(null);
         stage.show();
     }
-    public void CourseView(ActionEvent e,UserManager Controller) throws IOException{
+    public void CourseView(ActionEvent e,UserManager Controller) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("CourseView.fxml"));
             Parent root = loader.load();
             CourseViewController courseViewController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            courseViewController.ObtainController(Controller); //Pass the usercontroller into the instance
+            courseViewController.ObtainController(Controller); //Pass the user-controller into the instance
 
             courseViewController.SetupTable();
 
@@ -45,7 +43,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EnrolView.fxml"));
             Parent root = loader.load();
             EnrolViewController enrolViewController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            enrolViewController.ObtainController(Controller); //Pass the usercontroller into the instance
+            enrolViewController.ObtainController(Controller); //Pass the user-controller into the instance
             enrolViewController.PopulateList();
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
@@ -60,7 +58,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             FXMLLoader loader = new FXMLLoader(getClass().getResource("UnenrolView.fxml"));
             Parent root = loader.load();
             UnenrolController unenrolController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            unenrolController.ObtainController(Controller); //Pass the usercontroller into the instance
+            unenrolController.ObtainController(Controller); //Pass the user-controller into the instance
             unenrolController.PopulateList();
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
@@ -75,7 +73,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
             Parent root = loader.load();
             HomeController HomeController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            HomeController.ObtainController(Controller); //Pass the usercontroller into the instance
+            HomeController.ObtainController(Controller); //Pass the user-controller into the instance
 
             if (Controller.GetCurrentUser().GetUsername().equals("admin")) {
                 HomeController.AdminMode();
@@ -97,7 +95,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EditProfile.fxml"));
             Parent root = loader.load();
             EditProfileController editProfileController = loader.getController(); // make an instance of the next scenes Controller to set text up
-            editProfileController.ObtainController(Controller); //Pass the usercontroller into the instance
+            editProfileController.ObtainController(Controller); //Pass the user-controller into the instance
             editProfileController.Setup();
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);

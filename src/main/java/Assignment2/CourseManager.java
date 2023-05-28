@@ -1,7 +1,5 @@
 package Assignment2;
 
-import org.sqlite.util.StringUtils;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,13 +7,13 @@ import java.io.IOException;
 import java.util.HashSet;
 
 public class CourseManager {
-    private HashSet<Course> AvailableCourses = new HashSet<Course>();
-    private HashSet<Course> EnrolledCourses = new HashSet<Course>();
+    private HashSet<Course> AvailableCourses = new HashSet<>();
+    private HashSet<Course> EnrolledCourses = new HashSet<>();
 
     public CourseManager() {
         BufferedReader br;
         String fileName = "course.csv";
-        String line = "";
+        String line;
         {
             try {
                 br = new BufferedReader(new FileReader(fileName));

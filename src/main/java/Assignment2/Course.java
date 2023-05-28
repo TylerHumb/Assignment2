@@ -23,30 +23,6 @@ public class Course {
         return Coursename;
     }
 
-    public String getCapacity() {
-        return Capacity;
-    }
-
-    public String getYear() {
-        return Year;
-    }
-
-    public String getDelivery() {
-        return Delivery;
-    }
-
-    public String getDay() {
-        return Day;
-    }
-
-    public String getTime() {
-        return Time;
-    }
-
-    public String getDuration() {
-        return Duration;
-    }
-
     @Override
     public String toString() {
         return Coursename + " - " + Capacity + " - " + Year + " - " + Delivery + " - " + Day + " - " + Time + " - " + Duration;

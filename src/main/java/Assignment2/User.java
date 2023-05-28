@@ -1,7 +1,7 @@
 package Assignment2;
 
 public class User {
-    private String Username;
+    private final String Username;
     private String Password;
     private String Firstname;
     private String Lastname;
@@ -22,7 +22,7 @@ public class User {
         this.Lastname = "";
         this.Studentnumber = "";
     }
-    //since we dont want to return the password for privacy reasons
+    //since we don't want to return the password for privacy reasons
     public boolean CheckPassword(String Pass){
         return Password.equals(Pass);
     }
