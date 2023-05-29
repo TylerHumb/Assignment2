@@ -106,4 +106,20 @@ public class Navigator { // solely for switching views to reduce re-used code
         }
     }
 
+    public void ViewEnrol(ActionEvent e,UserManager Controller) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewEnrol.fxml"));
+            Parent root = loader.load();
+            ViewEnrolController viewEnrolController = loader.getController(); // make an instance of the next scenes Controller to set text up
+            viewEnrolController.ObtainController(Controller); //Pass the user-controller into the instance
+            viewEnrolController.SetupTable();
+
+            stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show(); //setup the new scene
+        }catch (IOException exception){
+            System.out.println(exception.getMessage());
+        }
+    }
 }

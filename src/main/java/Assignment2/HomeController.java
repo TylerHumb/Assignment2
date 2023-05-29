@@ -36,6 +36,9 @@ public class HomeController {
     public void CourseView(ActionEvent e){
         navigator.CourseView(e,Controller);
     }
+    public void ViewEnrol(ActionEvent e){
+        navigator.ViewEnrol(e,Controller);
+    }
     public void AdminMode(){
         SetWelcome("Hey Tyler");
         ToDelete.setVisible(true);

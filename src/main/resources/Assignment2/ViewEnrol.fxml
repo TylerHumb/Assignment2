@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="437.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment2.ViewEnrolController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" layoutX="-45.0" layoutY="-12.0" stroke="TRANSPARENT" strokeType="INSIDE" width="722.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="462.0" layoutX="-11.0" layoutY="-10.0" stroke="TRANSPARENT" strokeType="INSIDE" width="143.0" />
+      <Label layoutX="196.0" layoutY="26.0" style="-fx-font-style: italic;" text="Lockington Consolidated University">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="CourseTable" layoutX="132.0" layoutY="88.0" prefHeight="349.0" prefWidth="545.0">
+         <columns>
+            <TableColumn fx:id="CourseNameCol" prefWidth="140.0" text="Course Name" />
+            <TableColumn fx:id="CapacityCol" prefWidth="51.0" text="Capacity" />
+            <TableColumn fx:id="YearCol" prefWidth="51.0" text="Year" />
+            <TableColumn fx:id="DeliveryCol" prefWidth="111.0" text="Delievery" />
+            <TableColumn fx:id="DayCol" prefWidth="43.0" text="Day" />
+            <TableColumn fx:id="TimeCol" prefWidth="58.0" text="Time" />
+            <TableColumn fx:id="DurationCol" prefWidth="90.0" text="Duration" />
+         </columns>
+      </TableView>
+      <Button layoutX="24.0" layoutY="90.0" mnemonicParsing="false" onAction="#Home" prefHeight="49.0" prefWidth="100.0" text="Back to Home" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="24.0" layoutY="155.0" mnemonicParsing="false" onAction="#Switchview" prefHeight="49.0" prefWidth="100.0" text="Switch to Timetable View" textAlignment="CENTER" wrapText="true" />
+      <GridPane fx:id="gridpane" gridLinesVisible="true" layoutX="170.0" layoutY="128.0" prefHeight="295.0" prefWidth="487.0" visible="false" AnchorPane.topAnchor="128.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <StackPane fx:id="AdvancedPy" alignment="TOP_LEFT" prefHeight="2.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="8" GridPane.rowSpan="2">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7847" height="50.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                  <Label prefHeight="20.0" prefWidth="99.0" text="Advanced Python" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane fx:id="Math" alignment="TOP_LEFT" prefHeight="2.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4791ff" height="59.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                  <Label prefHeight="20.0" prefWidth="99.0" text="Math" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane fx:id="ProgSkills" prefHeight="68.0" prefWidth="98.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7847" height="34.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                  <Label prefHeight="20.0" prefWidth="99.0" text="Programming Skills" wrapText="true" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" top="12.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane fx:id="JavaProg" alignment="TOP_LEFT" prefHeight="62.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7847" height="63.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                  <Label prefHeight="20.0" prefWidth="99.0" text="Java Programming" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane fx:id="Mining" alignment="TOP_LEFT" prefHeight="62.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.rowIndex="4" GridPane.rowSpan="2">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4791ff" height="63.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                  <Label prefHeight="20.0" prefWidth="99.0" text="Data Mining" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane fx:id="Knowledge" alignment="TOP_LEFT" prefHeight="62.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.rowIndex="6" GridPane.rowSpan="2">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7847" height="63.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                  <Label prefHeight="20.0" prefWidth="99.0" text="Knowledge Tech" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane fx:id="Algorithms" alignment="TOP_LEFT" prefHeight="2.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7847" height="50.0" stroke="BLACK" strokeType="INSIDE" width="98.0" />
+                  <Label prefHeight="20.0" prefWidth="99.0" text="Algorithms" wrapText="true">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </GridPane>
+      <Label fx:id="One" layoutX="144.0" layoutY="121.0" text="8:00" visible="false" />
+      <Label fx:id="Two" layoutX="144.0" layoutY="149.0" text="9:00" visible="false" />
+      <Label fx:id="Three" layoutX="139.0" layoutY="178.0" text="10:00" visible="false" />
+      <Label fx:id="Four" layoutX="139.0" layoutY="207.0" text="11:00" visible="false" />
+      <Label fx:id="Five" layoutX="139.0" layoutY="236.0" text="12:00" visible="false" />
+      <Label fx:id="Six" layoutX="139.0" layoutY="265.0" text="13:00" visible="false" />
+      <Label fx:id="Seven" layoutX="139.0" layoutY="295.0" text="14:00" visible="false" />
+      <Label fx:id="Eight" layoutX="139.0" layoutY="325.0" text="15:00" visible="false" />
+      <Label fx:id="Nine" layoutX="139.0" layoutY="355.0" text="16:00" visible="false" />
+      <Label fx:id="Ten" layoutX="139.0" layoutY="384.0" text="17:00" visible="false" />
+      <Label fx:id="Eleven" layoutX="196.0" layoutY="109.0" text="Monday" visible="false" />
+      <Label fx:id="Twelve" layoutX="297.0" layoutY="109.0" text="Tuesday" visible="false" />
+      <Label fx:id="Thirteen" layoutX="383.0" layoutY="109.0" text="Wednesday" visible="false" />
+      <Label fx:id="Fourteen" layoutX="487.0" layoutY="109.0" text="Thursday" visible="false" />
+      <Label fx:id="Fifteen" layoutX="593.0" layoutY="109.0" text="Friday" visible="false" />
+      <Label fx:id="Sixteen" layoutX="138.0" layoutY="414.0" text="18:00" visible="false" />
+   </children>
+</AnchorPane>
