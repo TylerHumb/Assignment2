@@ -15,7 +15,7 @@
       <Button layoutX="14.0" layoutY="80.0" mnemonicParsing="false" onAction="#CourseView" prefHeight="49.0" prefWidth="100.0" text="View all Courses" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="200.0" mnemonicParsing="false" onAction="#UnenrolView" prefHeight="49.0" prefWidth="100.0" text="Withdraw from a course" textAlignment="CENTER" wrapText="true" />
       <Button layoutX="14.0" layoutY="265.0" mnemonicParsing="false" onAction="#ViewEnrol" prefHeight="49.0" prefWidth="100.0" text="View enrolled courses" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="14.0" layoutY="328.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="100.0" text="Export Enrolled courses" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="14.0" layoutY="328.0" mnemonicParsing="false" onAction="#Export" prefHeight="49.0" prefWidth="100.0" text="Export Enrolled courses" textAlignment="CENTER" wrapText="true" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="243.0" layoutX="118.0" layoutY="-165.0" stroke="TRANSPARENT" strokeType="INSIDE" width="483.0" />
       <Label layoutX="134.0" layoutY="21.0" style="-fx-font-style: italic;" text="Lockington Consolidated University">
          <font>

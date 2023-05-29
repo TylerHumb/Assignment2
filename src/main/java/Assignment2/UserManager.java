@@ -70,7 +70,7 @@ public class UserManager {
         return true;
     }
 
-    public boolean DeleteUser(String Username){
+    public void DeleteUser(String Username){
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl);
             String sql = "Delete From users WHERE Username ='"+Username+"'";
@@ -78,9 +78,7 @@ public class UserManager {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-            return false;
         }
-        return true;
     }
     public boolean AddEnrolledCourse(String Coursename) {
         String sql;

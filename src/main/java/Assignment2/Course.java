@@ -49,6 +49,6 @@ public class Course {
 
     @Override
     public String toString() {
-        return Coursename + " - " + Capacity + " - " + Year + " - " + Delivery + " - " + Day + " - " + Time + " - " + Duration;
+        return Coursename + "," + Capacity + "," + Year + "," + Delivery + "," + Day + "," + Time + "," + Duration;
     }
 }

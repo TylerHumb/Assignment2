@@ -130,4 +130,20 @@ public class Navigator { // solely for switching views to reduce re-used code
             System.out.println(exception.getMessage());
         }
     }
+    public void ExportView(ActionEvent e,UserManager Controller) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Export.fxml"));
+            Parent root = loader.load();
+            ExportController exportController = loader.getController(); // make an instance of the next scenes Controller to set text up
+            exportController.ObtainController(Controller); //Pass the user-controller into the instance
+
+            stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("MyTimetable - Viewing Classes");
+            stage.show(); //setup the new scene
+        }catch (IOException exception){
+            System.out.println(exception.getMessage());
+        }
+    }
 }

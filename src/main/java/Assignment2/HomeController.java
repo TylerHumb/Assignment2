@@ -2,21 +2,12 @@ package Assignment2;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class HomeController {
     @FXML
     private Text Welcome;
-    @FXML
-    private TextField ToDelete;
-    @FXML
-    private Button Delete;
-
-    @FXML
-    private Label Confirmation;
     @FXML
     private Label Studnum;
 
@@ -49,5 +40,8 @@ public class HomeController {
     }
     public void EditProfile(ActionEvent e){
         navigator.EditProfile(e,Controller);
+    }
+    public void Export(ActionEvent e){
+        navigator.ExportView(e,Controller);
     }
 }
