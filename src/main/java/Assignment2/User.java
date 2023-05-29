@@ -38,6 +38,10 @@ public class User {
         return Firstname;
     }
 
+    public String getLastname() {
+        return Lastname;
+    }
+
     public String GetStudentnumber(){return Studentnumber;}
 
     public CourseManager GetCourseManager() {

@@ -3,7 +3,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -32,9 +31,6 @@
       <Text fx:id="Welcome" layoutX="134.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello FIRSTNAME LASTNAME" />
       <Button layoutX="518.0" layoutY="84.0" mnemonicParsing="false" onAction="#Login" prefHeight="25.0" prefWidth="74.0" text="Logout" />
       <Button layoutX="518.0" layoutY="117.0" mnemonicParsing="false" onAction="#EditProfile" text="Edit Profile" />
-      <Button fx:id="Delete" layoutX="514.0" layoutY="117.0" mnemonicParsing="false" onAction="#DeleteUser" text="Delete Users" visible="false" />
-      <TextField fx:id="ToDelete" layoutX="440.0" layoutY="150.0" promptText="Username to delete" visible="false" />
-      <Label fx:id="Confirmation" layoutX="409.0" layoutY="175.0" text="confirmation" textFill="RED" visible="false" wrapText="true" />
       <Label fx:id="Studnum" layoutX="132.0" layoutY="369.0" prefHeight="17.0" prefWidth="156.0" text="Student: S3947682">
          <cursor>
             <Cursor fx:constant="DEFAULT" />

@@ -57,14 +57,16 @@ public class UserManager {
     public boolean RegisterNewUser(String Username, String Password){
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl);
-            String sql = "insert into users values('"+Username+"','"+Password+"','','','');";
+            String sql = "insert into users values('"+Username+"','"+Password+"','','','','');";
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
         }
-        Users.add(new User(Username,Password));
+        User newuser = new User(Username,Password);
+        Users.add(newuser);
+        CurrentUser = newuser;
         return true;
     }
 
@@ -82,12 +84,6 @@ public class UserManager {
     }
     public boolean AddEnrolledCourse(String Coursename) {
         String sql;
-        for (Course course:CurrentUser.GetCourseManager().GetAvailableCourses()){
-            if (course.getCoursename().equals(Coursename)){
-                CurrentUser.GetCourseManager().AddEnrolledCourse(course);
-                break;
-            }
-        }
         if (CurrentUser.GetCourseManager().GetEnrolledCourses().size() == 0) {
             sql = "Update users SET enrolledcourses = '" + Coursename + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
         } else {
@@ -100,6 +96,12 @@ public class UserManager {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
+        }
+        for (Course course:CurrentUser.GetCourseManager().GetAvailableCourses()){
+            if (course.getCoursename().equals(Coursename)){
+                CurrentUser.GetCourseManager().AddEnrolledCourse(course);
+                break;
+            }
         }
         return true;
     }

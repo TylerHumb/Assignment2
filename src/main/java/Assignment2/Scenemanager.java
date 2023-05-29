@@ -17,7 +17,7 @@ public class Scenemanager extends Application {
         try {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
             Scene scene = new Scene(root);
-            mainstage.setTitle("MyTimetable");
+            mainstage.setTitle("MyTimetable - Login");
             mainstage.setScene(scene);
             mainstage.show();
         } catch (IOException e) {

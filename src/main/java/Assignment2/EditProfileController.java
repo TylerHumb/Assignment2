@@ -56,6 +56,7 @@ public class EditProfileController {
         StudButton.setVisible(false);
         StudText.setVisible(false);
         NewStud.setVisible(false);
+        BackButton.setDisable(false);
     }
     public void SetFirstname(){
         if (NewFirst.getText().equals("")){
@@ -87,5 +88,10 @@ public class EditProfileController {
     public void Home(ActionEvent e){
         Navigator navigator = new Navigator();
         navigator.Home(e,Controller);
+    }
+    public void Delete(ActionEvent e){
+        Controller.DeleteUser(Controller.GetCurrentUser().GetUsername());
+        Navigator navigator = new Navigator();
+        navigator.Login(e,Controller);
     }
 }

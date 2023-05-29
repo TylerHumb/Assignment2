@@ -13,11 +13,17 @@ import java.util.Objects;
 public class Navigator { // solely for switching views to reduce re-used code
     private Stage stage;
 
-    public void Login(ActionEvent e, UserManager Controller) throws IOException {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+    public void Login(ActionEvent e, UserManager Controller){
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
         stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setTitle("MyTimetable - Login");
         Controller.SetUser(null);
         stage.show();
     }
@@ -33,6 +39,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("MyTimetable - Viewing Courses");
             stage.show(); //setup the new scene
         }catch (IOException exception){
             System.out.println(exception.getMessage());
@@ -48,6 +55,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("MyTimetable - Enrollment");
             stage.show(); //setup the new scene
         }catch (IOException exception){
             System.out.println(exception.getMessage());
@@ -63,6 +71,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("MyTimetable - Unenrol");
             stage.show(); //setup the new scene
         }catch (IOException exception){
             System.out.println(exception.getMessage());
@@ -75,16 +84,13 @@ public class Navigator { // solely for switching views to reduce re-used code
             HomeController HomeController = loader.getController(); // make an instance of the next scenes Controller to set text up
             HomeController.ObtainController(Controller); //Pass the user-controller into the instance
 
-            if (Controller.GetCurrentUser().GetUsername().equals("admin")) {
-                HomeController.AdminMode();
-            }
-            if (Controller.GetCurrentUser().GetFirstname().equals("")){
+            if (Controller.GetCurrentUser().GetFirstname().equals("")||Controller.GetCurrentUser().getLastname().equals("")){
                 HomeController.SetWelcome("Welcome, Please finish setting up your profile by clicking edit profile!");
             }else HomeController.SetWelcome("Welcome " + Controller.GetCurrentUser().GetFullName());
-
             Stage stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("MyTimetable - Dashboard");
             stage.show(); //setup the new scene
         }catch (IOException exception){
             System.out.println(exception.getMessage());
@@ -100,6 +106,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("MyTimetable - Edit Profile");
             stage.show(); //setup the new scene
         }catch (IOException exception){
             System.out.println(exception.getMessage());
@@ -117,6 +124,7 @@ public class Navigator { // solely for switching views to reduce re-used code
             stage  = (Stage) ((Node)e.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setTitle("MyTimetable - Viewing Classes");
             stage.show(); //setup the new scene
         }catch (IOException exception){
             System.out.println(exception.getMessage());

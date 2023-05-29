@@ -81,6 +81,8 @@ public class ViewEnrolController implements Initializable {
     private TableColumn<Course, String> TimeCol;
     @FXML
     private TableColumn<Course, String> DurationCol;
+    @FXML
+    private Button SwitchButton;
 
     private boolean Switcher = true; // used to switch between timetable view and normal view
     UserManager Controller;
@@ -109,10 +111,12 @@ public class ViewEnrolController implements Initializable {
             SetupTimetable();
             CourseTable.setVisible(false);
             Switcher = false;
+            SwitchButton.setText("Switch to Table View");
         }else {
             CloseTimetable();
             CourseTable.setVisible(true);
             Switcher = true;
+            SwitchButton.setText("Switch to Timetable View");
         }
     }
     public void SetupTimetable(){
@@ -142,7 +146,7 @@ public class ViewEnrolController implements Initializable {
                 Math.setVisible(true);
                 continue;
             }
-            if (course.getCoursename().equals("Data Mining")){
+            if (course.getCoursename().equals("Data mining")){
                 Mining.setVisible(true);
                 continue;
             }
