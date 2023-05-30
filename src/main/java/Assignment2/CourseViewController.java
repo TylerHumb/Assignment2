@@ -34,7 +34,7 @@ public class CourseViewController implements Initializable {
         ObservableList<Course> courses = FXCollections.observableArrayList();
 
         courses.addAll(Controller.GetCurrentUser().GetCourseManager().GetAvailableCourses());
-        CourseTable.setItems(courses);
+        CourseTable.setItems(courses); // sets up the coursetable with all of the available courses
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){

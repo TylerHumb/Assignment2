@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -18,7 +19,8 @@
          </font>
       </Label>
       <ListView fx:id="PossibleEnrol" layoutX="145.0" layoutY="118.0" prefHeight="200.0" prefWidth="436.0" />
-      <Button layoutX="338.0" layoutY="336.0" mnemonicParsing="false" onAction="#Enrol" text="Enrol" />
+      <Button layoutX="340.0" layoutY="333.0" mnemonicParsing="false" onAction="#Enrol" text="Enrol" />
       <Label fx:id="Warning" alignment="CENTER" layoutX="254.0" layoutY="369.0" prefHeight="17.0" prefWidth="217.0" textAlignment="CENTER" textFill="RED" />
+      <TextField fx:id="Search" layoutX="251.0" layoutY="92.0" onKeyReleased="#PopulateListSearch" prefHeight="25.0" prefWidth="224.0" promptText="Search For a Course" />
    </children>
 </AnchorPane>

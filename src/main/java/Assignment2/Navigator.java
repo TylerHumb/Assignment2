@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class Navigator { // solely for switching views to reduce re-used code
+public class Navigator { // solely for switching views to reduce re-used code, contains code to switch to every view
     private Stage stage;
 
     public void Login(ActionEvent e, UserManager Controller){

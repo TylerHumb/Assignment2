@@ -26,7 +26,7 @@ public class EditProfileController {
 
     UserManager Controller;
 
-    public void Setup(){
+    public void Setup(){ // checks if Student number is set yet and forces them to add it if it isnt yet
         if (Controller.GetCurrentUser().GetStudentnumber().equals("")){
             BackButton.setDisable(true);
             Warning.setText("Cannot Leave until Student Number is Set!");
@@ -34,7 +34,7 @@ public class EditProfileController {
             StudButton.setVisible(false);
             StudText.setVisible(false);
             NewStud.setVisible(false);
-        }
+        } // if it is already set hide the contols allowing you to change it
     }
     public void ObtainController(UserManager controller){
         Controller = controller;
@@ -43,7 +43,7 @@ public class EditProfileController {
         if (NewStud.getText().equals("")){
             Warning.setText("Student Number cannot be empty!");
             return;
-        }
+        } // preform basic checks
         for (User user: Controller.GetUsers()){
             if (user.GetStudentnumber().equals(NewStud.getText())){
                 Warning.setText("Student number already in use!");
@@ -51,12 +51,12 @@ public class EditProfileController {
             }
         }
         Controller.GetCurrentUser().setStudentnumber(NewStud.getText());
-        Controller.SetStudentNum(NewStud.getText());
+        Controller.SetStudentNum(NewStud.getText()); // assign the new value to the user
         Warning.setText("Student Number Successfully Set!");
         StudButton.setVisible(false);
         StudText.setVisible(false);
         NewStud.setVisible(false);
-        BackButton.setDisable(false);
+        BackButton.setDisable(false); //re-enables the back button after the student number is set
     }
     public void SetFirstname(){
         if (NewFirst.getText().equals("")){

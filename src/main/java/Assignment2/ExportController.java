@@ -23,7 +23,7 @@ public class ExportController {
     public void ObtainController(UserManager controller){
         this.Controller = controller;
     }
-    public void Export(){
+    public void Export(){ // allows the user to name the file whatever they want
         if (Filename.getText().equals("")){
             Warning.setText("File name cannot be empty!");
             return;
@@ -35,10 +35,10 @@ public class ExportController {
                 pw = new PrintWriter(new FileWriter(newfile,true));
                 for (Course course: Controller.GetCurrentUser().GetCourseManager().GetEnrolledCourses()){
                     pw.append(course.toString()).append("\n");
-                }
+                } // writes every course down
                 pw.close();
                 Warning.setText("File has been successfuly written!");
-                Path.setText("File can be found at: "+newfile.getAbsolutePath());
+                Path.setText("File can be found at: "+newfile.getAbsolutePath()); // prints the filepath so the user knows where it is saved
             }else {
                 Warning.setText("An error has occured during filewriting!");
             }

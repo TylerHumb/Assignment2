@@ -9,7 +9,7 @@ public class UserManager {
 
     String jdbcUrl = "jdbc:sqlite:users.db";
 
-    public UserManager(){
+    public UserManager(){ // on creation makes a list of every user registered to the platform
         try {
             try {
                 Class.forName("org.sqlite.JDBC");
@@ -21,10 +21,10 @@ public class UserManager {
             Statement statement = connection.createStatement();
             ResultSet users = statement.executeQuery(sql);
 
-            while (users.next()){
+            while (users.next()){ // based on the details from the database creates new user objects
                 User usertoadd = new User(users.getString("Username"),users.getString("Password"),users.getString("Firstname"),users.getString("Lastname"),users.getString("StudentID"));
                 if (users.getString("enrolledcourses") != null){
-                    usertoadd.GetCourseManager().SetupEnrolledCourses(users.getString("enrolledcourses"));
+                    usertoadd.GetCourseManager().SetupEnrolledCourses(users.getString("enrolledcourses")); // calls the individual coursemanagers to make their lists of enrolled courses
                 }
                 Users.add(usertoadd);
             }
@@ -78,11 +78,11 @@ public class UserManager {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        }
+        } // allows users to delete their profiles
     }
     public boolean AddEnrolledCourse(String Coursename) {
         String sql;
-        if (CurrentUser.GetCourseManager().GetEnrolledCourses().size() == 0) {
+        if (CurrentUser.GetCourseManager().GetEnrolledCourses().size() == 0) { // checks if it is their first course they're enrolling in as the argument is different
             sql = "Update users SET enrolledcourses = '" + Coursename + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
         } else {
             sql = "Update users SET enrolledcourses = '" + CurrentUser.GetCourseManager().GeneratenewEnrolled(Coursename) + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
@@ -99,7 +99,7 @@ public class UserManager {
             if (course.getCoursename().equals(Coursename)){
                 CurrentUser.GetCourseManager().AddEnrolledCourse(course);
                 break;
-            }
+            } // only adds the course to their coursemanager if it gets added to the database first
         }
         return true;
     }
@@ -110,7 +110,7 @@ public class UserManager {
                 CurrentUser.GetCourseManager().RemoveCourse(course);
                 break;
             }
-        }
+        }// for unenrolment the course must be removed from the manager first to get an accurate list for the db
         sql = "Update users SET enrolledcourses = '" + CurrentUser.GetCourseManager().GeneratenewEnrolled() + "' WHERE Username ='" + CurrentUser.GetUsername() + "'";
         try {
             Connection connection = DriverManager.getConnection(jdbcUrl);

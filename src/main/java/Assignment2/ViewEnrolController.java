@@ -16,7 +16,7 @@ import javafx.scene.layout.StackPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ViewEnrolController implements Initializable {
+public class ViewEnrolController implements Initializable { // i am so sorry that this is the way i did this
     @FXML
     private StackPane AdvancedPy;
     @FXML
@@ -106,8 +106,8 @@ public class ViewEnrolController implements Initializable {
         this.Controller = controller;
     }
 
-    public void Switchview(){
-        if (Switcher){
+    public void Switchview(){ // switches between timetable and tableview
+        if (Switcher){ // keeps track of what state its in with the switcher variable
             SetupTimetable();
             CourseTable.setVisible(false);
             Switcher = false;
@@ -119,7 +119,7 @@ public class ViewEnrolController implements Initializable {
             SwitchButton.setText("Switch to Timetable View");
         }
     }
-    public void SetupTimetable(){
+    public void SetupTimetable(){ // when setting up the timetable, unhide all timetable elements and hide all the table ones
         Label[] Labels = {One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirteen,Fourteen,Fifteen,Sixteen};
         gridpane.setVisible(true);
         for (Label label:Labels){
@@ -128,7 +128,7 @@ public class ViewEnrolController implements Initializable {
         StackPane[] Blips = {AdvancedPy,Math,ProgSkills,JavaProg,Mining,Knowledge,Algorithms};
         for (StackPane stackPane: Blips){
             stackPane.setVisible(false);
-        }
+        } // below manually checks each course and hides them if they arent enrolled (terrible i know)
         for (Course course:Controller.GetCurrentUser().GetCourseManager().GetEnrolledCourses()){
             if (course.getCoursename().equals("Java programming")){
                 JavaProg.setVisible(true);
@@ -161,7 +161,7 @@ public class ViewEnrolController implements Initializable {
             System.out.println("Class not found?");
         }
     }
-    public void CloseTimetable(){
+    public void CloseTimetable(){// when setting up the table, unhide all table elements and hide all the timetable ones
         Label[] Labels = {One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirteen,Fourteen,Fifteen,Sixteen};
         StackPane[] Blips = {AdvancedPy,Math,ProgSkills,JavaProg,Mining,Knowledge,Algorithms};
         for (StackPane stackPane: Blips){

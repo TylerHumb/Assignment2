@@ -27,7 +27,7 @@ public class LoginController {
     UserManager Controller = new UserManager();
 
 
-    public void AttemptLogin(ActionEvent e){
+    public void AttemptLogin(ActionEvent e){ // has to consult the usermanager to see if details match
         if (Controller.AttemptLogin(Username.getText(),Password.getText())){
             Navigator navigator = new Navigator();
             navigator.Home(e,Controller);
@@ -40,7 +40,7 @@ public class LoginController {
         Back.setVisible(true);
         AttemptReg.setVisible(true);
         Help.setVisible(true);
-    }
+    } // allows me to use one FMXL file and controller for both login and registration
     public void Back(){
         Register.setVisible(true);
         Login.setVisible(true);
@@ -73,7 +73,7 @@ public class LoginController {
         }
         if (Controller.RegisterNewUser(Username.getText(),Password.getText())){
             Navigator navigator = new Navigator();
-            navigator.EditProfile(e,Controller);
+            navigator.EditProfile(e,Controller); // auto redirects user to the editprofile page to finish filling in details
             return true;
         }else{
             Error.setText("Error whilst Registering, please try again");
